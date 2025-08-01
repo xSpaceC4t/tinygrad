@@ -82,6 +82,7 @@ class OpenGLRenderer(CStyleLanguage):
       if "shared" in line:
         prg += line
 
-    prg += ''.join([f"{self.kernel_prefix}void main(",] +
+    # prg += ''.join([f"{self.kernel_prefix}void main(",] +
+    prg += ''.join([f"void main(",] +
     [") {\n"] + ['\n'.join(line for line in kernel if 'shared' not in line), "\n}"])
     return prg if prefix is None else "\n".join(prefix)+f"\n{prg}"
